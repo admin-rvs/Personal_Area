@@ -1,0 +1,35 @@
+{% extends "adminlte_full/base.html" %}
+{% load crispy_forms_tags adminlte_full i18n %}
+
+{% block page_content %}
+
+    {% if adminlte_user.role is 4 %}
+        <h4>Вы вошли как сотрудник</h4>
+    {% endif %}
+    {% if adminlte_user.role is 1 %}
+        {% include 'core/includes/modal_form_customuser.html' %}
+        {% include 'core/includes/modal_form_script.html' %}
+        {{ user.get_full_name }}
+    {% endif %}
+    {% if adminlte_user.role is 2 %}
+        <h4>Вы вошли как доктор</h4>
+    {% endif %}
+    {% if adminlte_user.role is 3 %}
+        <h4>Вы вошли как фармацевт</h4>
+    {% endif %}
+    {% if not adminlte_user.role %}
+    {% block form %}
+        <form action="" method="post">
+            <div class="row">
+                <div class="col-md-5">
+                    {% block form_fields %}
+                        {% crispy form %}
+                    {% endblock form_fields %}
+                    <button type="submit" class="btn btn-primary btn-block">{% trans 'Продолжить' %}</button>
+                </div>
+            </div>
+        </form>
+    {% endblock form %}
+    {% endif %}
+
+{% endblock %}

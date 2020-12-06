@@ -1,0 +1,90 @@
+{% load crispy_forms_tags i18n %}
+
+<form action="" method="post">
+    {% csrf_token %}
+    <div id="myModalBox" class="modal fade">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <!-- Заголовок модального окна -->
+                <div class="modal-header">
+                    <h6 class="modal-title">Будь ласка заповніть ваші дані щоб продовжити роботу</h6>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                </div>
+                <!-- Основное содержимое модального окна -->
+                <div class="modal-body">
+                    <h5><b>Персональна Інформація</b></h5>
+                    <div class="form-row">
+                        <div class="form-group col-md-4 mb-0">
+                            {{ form_modal_window.first_name|as_crispy_field }}
+                            {{ form_modal_window.sex|as_crispy_field }}
+                        </div>
+                        <div class="form-group col-md-4 mb-0">
+                            {{ form_modal_window.last_name|as_crispy_field }}
+                            {{ form_modal_window.date_of_birth|as_crispy_field }}
+                        </div>
+                        <div class="form-group col-md-4 mb-0">
+                            {{ form_modal_window.middle_name|as_crispy_field }}
+                            {{ form_modal_window.email|as_crispy_field }}
+                        </div>
+                    </div>
+                    <hr>
+                    <h5><b>Адреса</b></h5>
+                    <div class="form-row">
+                        <div class="form-group col-md-4 mb-0">
+                            {{ form_modal_window.zip_code|as_crispy_field }}
+                        </div>
+                        <div class="form-group col-md-4 mb-0">
+                            {{ form_modal_window.region|as_crispy_field }}
+                        </div>
+                        <div class="form-group col-md-4 mb-0">
+                            {{ form_modal_window.city|as_crispy_field }}
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4 mb-0">
+                            {{ form_modal_window.street|as_crispy_field }}
+                        </div>
+                        <div class="form-group col-md-3 mb-0">
+                            {{ form_modal_window.house|as_crispy_field }}
+                        </div>
+                        <div class="form-group col-md-3 mb-0">
+                            {{ form_modal_window.apartment|as_crispy_field }}
+                        </div>
+                    </div>
+                    <hr>
+                    <h5><b>Документи</b></h5>
+                    <div class="form-row">
+                        <div class="form-group col-md-4 mb-0">
+                            {{ form_modal_window.number| as_crispy_field }}
+                        </div>
+                        <div class="form-group col-md-4 mb-0">
+                           {{ form_modal_window.series| as_crispy_field }}
+                        </div>
+                        <div class="form-group col-md-4 mb-0">
+                          {{ form_modal_window.tax_number| as_crispy_field }}
+                        </div>
+                    </div>
+                    <hr>
+                    <h5><b>Місце роботи</b></h5>
+                    <div class="form-row">
+                        <div class="form-group col-md-4 mb-0">
+                            {{ form_modal_window.organization|as_crispy_field }}
+                        </div>
+                        <div class="form-group col-md-4 mb-0">
+                            {{ form_modal_window.position|as_crispy_field }}
+                        </div>
+                    </div>
+                </div>
+                <!-- Футер модального окна -->
+                <div class="modal-footer">
+                    <p>Я погоджуюся на обробку персональних даних.</p> <a href="">Угода користувача.</a>
+                    <button type="submit" class="btn btn-primary btn-lg">{% trans 'Зберегти' %}</button>
+                </div>
+             </div>
+        </div>
+    </div>
+</form>
+
+<div class="modal hide" id="contactModal">
+    {{ kostyl_form.is_data_filled }}
+</div>

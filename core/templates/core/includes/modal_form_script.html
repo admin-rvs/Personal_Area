@@ -1,0 +1,12 @@
+<!-- Скрипт, вызывающий модальное окно после загрузки страницы -->
+<script>
+    $(document).ready(function() {
+        $("#id_is_data_filled").hide();
+        $(".asteriskField").hide();
+        $(".form-control").addClass("form-control-sm");
+        var is_data_filled = $("#id_is_data_filled").val();
+        if (is_data_filled === '1') {
+            $("#myModalBox").modal('show');
+        }
+    });
+</script>
