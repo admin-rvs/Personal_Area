@@ -3,6 +3,8 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/env" />
+      <excludeFolder url="file://$MODULE_DIR$/core/static/adminlte_full/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/static/adminlte_full/dist" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.9 (Personal_Area)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
